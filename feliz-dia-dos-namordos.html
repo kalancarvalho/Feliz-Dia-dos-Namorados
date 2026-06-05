@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Dia dos Namorados ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+    font-family:'Poppins',sans-serif;
+    color:white;
+    overflow-x:hidden;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(255,255,255,.15),
+    transparent 35%),
+
+    linear-gradient(
+    135deg,
+    #081c24,
+    #102b35,
+    #1f4050
+    );
+}
+
+
+/* LÍRIOS (decoração fixa + animação de queda) */
+.lily{
+    position:fixed;
+    z-index:0;
+    opacity:.12;
+    pointer-events:none;
+    font-size:250px;
+}
+
+.lily1{
+    top:-40px;
+    left:-20px;
+}
+
+.lily2{
+    bottom:-50px;
+    right:-20px;
+}
+
+.lily3{
+    top:40%;
+    right:-50px;
+    font-size:180px;
+}
+
+.lily-falling{
+    position:fixed;
+    top:-10vh;
+    left:0;
+    z-index:0;
+    pointer-events:none;
+    opacity:.55;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,.35));
+    transform: translateY(-20px) rotate(0deg);
+    animation-name: lilyFall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes lilyFall{
+    0%{
+        transform: translate3d(0, -10vh, 0) rotate(0deg);
+        opacity:0;
+    }
+    10%{ opacity:.55; }
+    100%{
+        transform: translate3d(var(--drift, 0px), 120vh, 0) rotate(var(--spin, 0deg));
+        opacity:0;
+    }
+}
+
+/* tamanho base dos lirios que vão ser gerados */
+.lily-falling span{
+    display:block;
+    transform: translateZ(0);
+}
+
+/* CORAÇÕES */
+.heart{
+    position:fixed;
+    color:rgba(255,255,255,.08);
+    animation: float 10s linear infinite;
+    z-index:0;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-120vh);
+    }
+}
+
+header{
+    text-align:center;
+    padding:70px 20px;
+    position:relative;
+    z-index:2;
+}
+
+header h1{
+    font-size:60px;
+    font-family:'Playfair Display',serif;
+}
+
+header p{
+    margin-top:15px;
+    font-size:20px;
+    opacity:.8;
+}
+
+.musica{
+
+    margin-top:35px;
+
+    text-align:center;
+}
+
+.musica button{
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(255,255,255,.18),
+    rgba(255,255,255,.08)
+    );
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    padding:18px 45px;
+
+    border-radius:60px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.25),
+    0 0 20px rgba(255,255,255,.08);
+}
+
+.musica button:hover{
+
+    transform:
+    translateY(-4px)
+    scale(1.03);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.3),
+    0 0 30px rgba(255,255,255,.12);
+}
+
+.musica-texto{
+
+    margin-top:12px;
+
+    font-size:14px;
+
+    opacity:.7;
+
+    font-style:italic;
+}
+
+/* SEÇÃO PRINCIPAL */
+
+.hero{
+    width:90%;
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+
+    align-items:center;
+
+    position:relative;
+    z-index:2;
+}
+
+.foto img{
+    width:100%;
+    border-radius:30px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.4);
+}
+
+.sobre{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.25);
+}
+
+.sobre h2{
+    font-size:40px;
+    margin-bottom:20px;
+
+    color:#ffffff;
+}
+
+.sobre p{
+    line-height:1.9;
+    margin-bottom:15px;
+}
+
+/* HISTÓRIA */
+
+/* HISTÓRIA */
+
+.historia{
+
+    width:90%;
+    max-width:1200px;
+
+    margin:120px auto;
+
+    position:relative;
+    z-index:2;
+}
+
+.historia-titulo{
+
+    text-align:center;
+
+    font-size:55px;
+
+    margin-bottom:70px;
+
+    font-family:'Playfair Display',serif;
+}
+
+.historia-item{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:50px;
+
+    align-items:center;
+
+    margin-bottom:80px;
+}
+
+.historia-item .foto img{
+
+    width:100%;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.4);
+}
+
+.historia-item .sobre{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.25);
+}
+
+.historia-item .sobre h3{
+
+    font-size:35px;
+
+    margin-bottom:20px;
+}
+
+.historia-item .sobre p{
+
+    line-height:1.9;
+}
+
+@media(max-width:900px){
+
+.historia-item{
+
+    grid-template-columns:1fr;
+}
+
+}
+
+/* CARTA */
+
+.carta{
+
+    width:85%;
+    max-width:1000px;
+
+    margin:100px auto;
+
+    padding:50px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:30px;
+
+    text-align:center;
+
+    position:relative;
+    z-index:2;
+}
+
+.carta h2{
+    font-size:45px;
+    margin-bottom:30px;
+}
+
+.carta p{
+    line-height:2;
+    font-size:18px;
+}
+
+/* RODAPÉ */
+
+footer{
+    text-align:center;
+    padding:50px 20px;
+
+    font-size:22px;
+    font-weight:600;
+
+    position:relative;
+    z-index:2;
+}
+
+@media(max-width:900px){
+
+.hero{
+    grid-template-columns:1fr;
+}
+
+header h1{
+    font-size:42px;
+}
+
+.sobre h2{
+    font-size:30px;
+}
+
+.carta h2{
+    font-size:35px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="lily lily1">🤍🌸</div>
+<div class="lily lily2">💜🌸</div>
+<div class="lily lily3">🤍🌸</div>
+
+<!-- LÍRIOS CAINDO (gerados via JS) -->
+<div id="lilyRain" aria-hidden="true"></div>
+
+<header>
+
+<h1>Feliz Dia dos Namorados ❤️</h1>
+
+<p>
+Para a pessoa mais especial da minha vida
+</p>
+
+</header>
+
+<div class="musica">
+
+<button onclick="document.getElementById('musica').play()">
+
+🎵 Nossa Música ❤️
+
+</button>
+
+<p class="musica-texto">
+Clique para ouvir a música que me faz lembrar de você.
+</p>
+
+</div>
+
+<audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<section class="hero">
+
+<div class="foto">
+
+<img src="namorada.jpeg" alt="Minha Namorada">
+
+</div>
+
+<div class="sobre">
+
+<h2>Sobre Ela ❤️</h2>
+
+<p>
+Você é a pessoa que transforma os meus dias.
+Seu sorriso ilumina qualquer momento e sua presença
+faz tudo ficar melhor.
+</p>
+
+<p>
+Admiro seu jeito de ser, sua força, seu carinho
+e a maneira como você cuida das pessoas que ama.
+</p>
+
+<p>
+Ao seu lado eu encontro paz, felicidade e motivos
+para acreditar que o amor verdadeiro existe.
+</p>
+
+<p>
+Você é muito mais do que alguém especial.
+Você é meu porto seguro, minha melhor amiga
+e o amor da minha vida.
+</p>
+
+</div>
+
+</section>
+<section class="historia">
+
+<h2 class="historia-titulo">
+Nossa História ❤️
+</h2>
+
+<div class="historia-item">
+
+    <div class="foto">
+        <img src="foto7.jpeg">
+    </div>
+
+    <div class="sobre">
+
+        <h3>❤️ Nosso Primeiro Encontro</h3>
+
+        <p>
+        O dia em que nos conhecemos foi o começo da melhor fase da minha vida.
+        Sem perceber, você começou a ocupar um espaço enorme no meu coração.
+        </p>
+
+    </div>
+
+</div>
+
+<div class="historia-item">
+
+    <div class="sobre">
+
+        <h3>❤️ Nossas Conversas</h3>
+
+        <p>
+        Cada conversa nossa se tornou uma lembrança especial.
+        Horas pareciam minutos quando eu estava falando com você.
+        </p>
+
+    </div>
+
+    <div class="foto">
+        <img src="foto6.jpeg">
+    </div>
+
+</div>
+
+<div class="historia-item">
+
+    <div class="foto">
+        <img src="foto3.jpeg">
+    </div>
+
+    <div class="sobre">
+
+        <h3>❤️ Os Abraços</h3>
+
+        <p>
+        Cada abraço seu virou um lugar onde eu me sinto em casa.
+        É nos seus braços que eu encontro paz e felicidade.
+        </p>
+
+    </div>
+
+</div>
+
+<div class="historia-item">
+
+    <div class="sobre">
+
+        <h3>❤️ Te quero sempre </h3>
+
+        <p>
+        Cada dia ao seu lado me faz ter mais certeza do quanto eu te amo.
+        Quero continuar criando momentos incríveis ao seu lado por muitos anos.
+        </p>
+
+    </div>
+
+    <div class="foto">
+        <img src="foto4.jpeg">
+    </div>
+
+</div>
+
+</section>
+
+<div class="sobre">
+
+<h2>❤️ Te amo </h2>
+
+<p>
+Cada abraço seu virou um lugar onde eu me sinto em casa.
+</p>
+
+<p>
+É nos seus braços que eu encontro paz e felicidade.
+</p>
+
+</div>
+
+</div>
+
+<br><br><br>
+
+<div class="hero">
+
+<div class="sobre">
+
+<h2>❤️ Nosso Futuro </h2>
+
+<p>
+E cada dia ao seu lado me faz ter mais certeza do quanto eu te amo.
+</p>
+
+<p>
+Quero continuar criando momentos incríveis ao seu lado por muitos anos.
+</p>
+
+</div>
+
+<div class="foto">
+<img src="foto5.jpeg" alt="">
+</div>
+
+</div>
+
+</section>
+
+</section>
+
+<section class="carta">
+
+<h2>Uma Mensagem Para Pituchinha ❤️</h2>
+
+<p>
+
+Meu amor,<br><br>
+
+Desde que você entrou na minha vida, os dias ficaram mais bonitos, mais alegres, os sorrisos mais sinceros e os sonhos muito maiores.<br><br>
+
+Nunca pensei que viveria algo assim ao seu lado. Há um ano, eu estava no quartel e jamais imaginei que estaria estudando com você, ainda mais na mesma turma. É surreal pensar nisso. No início, eu só queria estudar de manhã e voltar para a minha rotina normal. Mas, por acaso do destino, caímos na mesma turma, e foi assim que a nossa história começou.
+Só tenho a agradecer a Deus, porque sem Ele nada disso seria possível. E também agradecer a você por cada momento que vivemos juntos. Espero passar o resto da minha vida ao seu lado. Cada abraço seu tem um valor imensurável, algo que eu não consigo descrever em palavras. Cada conversa, cada risada e cada lembrança que construímos e continuamos construindo juntos são especiais para mim..<br><br>
+
+Você é a melhor parte dos meus dias. Tenho o prazer de te chamar de minha namorada. Você é incrível demais, e eu tenho um orgulho enorme da pessoa que você é. Sou orgulhoso de tudo o que você representa. Você é a pessoa que eu quero ao meu lado para o resto da minha vida, tanto nos momentos felizes quanto nos difíceis.<br><br>
+
+Não existem palavras suficientes para explicar o quanto você é importante para mim..<br><br>
+
+Eu te amo mais do que qualquer texto pode expressar, mais do que qualquer presente pode demonstrar e mais do que qualquer distância pode medir.<br><br>
+
+Obrigado por existir. Obrigado por ser você. E saiba que, para mim, será eu e você, hoje, amanhã e para sempre.<br><br>
+
+Eu te amo infinitamente, minha Pituchinha. ❤️
+
+</p>
+
+</section>
+
+<footer>
+
+Com amor,<br>
+Pituchinho ❤️
+
+</footer>
+
+<script>
+
+// Corações flutuando
+for(let i=0;i<20;i++){
+
+    let heart=document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML="❤";
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.fontSize=(20+Math.random()*30)+"px";
+
+    heart.style.animationDuration=(8+Math.random()*10)+"s";
+
+    document.body.appendChild(heart);
+
+}
+
+// Lirios caindo (gerados via JS)
+(function lilyRain(){
+    const container = document.getElementById('lilyRain');
+    if(!container) return;
+
+    const count = 22;
+    const emojis = ['🌸','🤍','💜','🌷','💚'];
+
+    const rand = (min, max) => Math.random() * (max - min) + min;
+
+    for(let i=0;i<count;i++){
+        const lily = document.createElement('div');
+        lily.className = 'lily-falling';
+
+        const size = rand(18, 52);
+        const left = rand(-5, 105);
+        const duration = rand(6, 12);
+        const delay = rand(0, 8);
+
+        lily.style.left = left + 'vw';
+        lily.style.fontSize = size + 'px';
+        lily.style.animationDuration = duration + 's';
+        lily.style.animationDelay = (-delay) + 's';
+
+        lily.style.setProperty('--drift', rand(-25, 25) + 'px');
+        lily.style.setProperty('--spin', rand(-35, 35) + 'deg');
+
+        lily.innerHTML = '<span>' + emojis[Math.floor(Math.random()*emojis.length)] + '</span>';
+
+        container.appendChild(lily);
+    }
+})();
+
+</script>
+
+</body>
+</html>
